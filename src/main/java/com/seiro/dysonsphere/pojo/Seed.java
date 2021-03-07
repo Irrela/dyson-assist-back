@@ -20,6 +20,12 @@ public class Seed {
     Boolean isLightEternal;
     List<String> rareResources;
 
+    public Seed(String starType, List<String> planets, List<String> rareResources) {
+        this.starType = starType;
+        this.planets = planets;
+        this.rareResources = rareResources;
+    }
+
     public String getSeedId() {
         return seedId;
     }
