@@ -10,6 +10,8 @@ import java.util.List;
 @Document(collection = "seed")
 public class Seed {
     @Id
+    String id;
+
     String seedId;
     String starType;
     String starName;
@@ -17,6 +19,14 @@ public class Seed {
     Integer lightEffic;
     Boolean isLightEternal;
     List<String> rareResources;
+
+    public String getSeedId() {
+        return seedId;
+    }
+
+    public void setSeedId(String seedId) {
+        this.seedId = seedId;
+    }
 
     public String getId() {
         return seedId;
