@@ -15,7 +15,7 @@ import java.util.List;
 public class seedResController {
 
     @Autowired
-    private MongoTemplate mongoTemplate;
+    MongoTemplate mongoTemplate;
     @Autowired
     SeedService seedService;
 
