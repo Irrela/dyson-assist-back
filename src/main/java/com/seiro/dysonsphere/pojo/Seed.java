@@ -16,14 +16,23 @@ public class Seed {
     String starType;
     String starName;
     List<String> planets;
+    Integer windEffic;
     Integer lightEffic;
     Boolean isLightEternal;
     List<String> rareResources;
+    Integer rareNum;
 
-    public Seed(String starType, List<String> planets, List<String> rareResources) {
+    public Seed(String id, String seedId, String starType, String starName, List<String> planets, Integer windEffic, Integer lightEffic, Boolean isLightEternal, List<String> rareResources, Integer rareNum) {
+        this.id = id;
+        this.seedId = seedId;
         this.starType = starType;
+        this.starName = starName;
         this.planets = planets;
+        this.windEffic = windEffic;
+        this.lightEffic = lightEffic;
+        this.isLightEternal = isLightEternal;
         this.rareResources = rareResources;
+        this.rareNum = rareResources.size();
     }
 
     public String getSeedId() {
@@ -89,4 +98,21 @@ public class Seed {
     public void setRareResources(List<String> rareResources) {
         this.rareResources = rareResources;
     }
+
+    public Integer getWindEffic() {
+        return windEffic;
+    }
+
+    public void setWindEffic(Integer windEffic) {
+        this.windEffic = windEffic;
+    }
+
+    public Integer getRareNum() {
+        return rareNum;
+    }
+
+    public void setRareNum(Integer rareNum) {
+        this.rareNum = rareNum;
+    }
+
 }
