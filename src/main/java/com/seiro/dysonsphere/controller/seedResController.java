@@ -30,41 +30,7 @@ public class seedResController {
     @CrossOrigin
     @PostMapping("/api/filterSeeds")
     public List<Seed> list(@RequestBody Request request) throws Exception {
-        Query query = new Query();
-        if(!request.getStarType().equals("")) {
-            query.addCriteria(Criteria.where("starType").is(request.getStarType()));
-        }
-        if(request.getPlanets().size() != 0) {
-            query.addCriteria(Criteria.where("planets").all(request.getPlanets()));
-        }
-        if(request.getRareResources().size() != 0) {
-            query.addCriteria(Criteria.where("rareResources").all(request.getRareResources()));
-        }
-
-        StringBuilder str = new StringBuilder();
-        switch (request.getSortType()) {
-            case "light_effic":
-                str.append("lightEffic");
-                break;
-            case "wind_effic":
-                str.append("windEffic");
-            case "rare_num":
-                str.append("rareNum");
-            default:
-                break;
-        }
-
-        if(request.getAscending() == 1) {
-            query.with(new Sort(Sort.Direction.ASC, new String(str)));
-        } else {
-            query.with(new Sort(Sort.Direction.DESC, new String(str)));
-        }
-
-        if(mongoTemplate.find(query, Seed.class) == null) {
-            return new ArrayList<Seed>();
-        }
-
-        return mongoTemplate.find(query, Seed.class);
+        return seedService.multiQuery(request);
     }
 
     @CrossOrigin
@@ -73,6 +39,5 @@ public class seedResController {
         seedService.addOrUpdate(seed);
         return seed;
     }
-
 
 }
